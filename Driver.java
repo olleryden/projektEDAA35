@@ -24,7 +24,7 @@ public class Driver {
 					original = scrambler(sizeOfArray);
 					long t0 = System.nanoTime();
 					System.out.println(original);
-					java.util.Collections.sort(original);
+					java.util.Collections.sort(original);    //Change this to your preferred sorting algorithm
 					System.out.println(original);
 					long t1 = System.nanoTime();
 					outFile.println(i + ", " + (t1 - t0));
