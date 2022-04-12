@@ -21,9 +21,7 @@ public class mainHeap {
 				for(int i = 1; i <= amount; ++i) {
 					list = scrambler(sizeOfArray);
 					long t0 = System.nanoTime();
-					System.out.println(list);
 					HeapSort.sort(list);
-					System.out.println(list);
 					long t1 = System.nanoTime();
 					outFile.println(i + ", " + (t1 - t0));
 				}
