@@ -4,7 +4,20 @@ import java.util.ArrayList;
 
 public class MergeSort {
 
-	void merge(ArrayList<Integer> list, int left, int mid, int right) {
+	public static void sort(ArrayList<Integer> list) {
+		sort(list, 0, list.size() - 1);
+	}
+	
+	private static void sort(ArrayList<Integer> list, int left, int right) {
+		if (left < right) {
+			int mid = left + (right - left)/2;
+			sort(list, left, mid);
+			sort(list, mid+1, right);
+			merge(list, left, mid, right);
+		}
+	}
+	
+	private static void merge(ArrayList<Integer> list, int left, int mid, int right) {
 		int n1 = mid - left + 1;
 		int n2 = right - mid;
 		
@@ -45,37 +58,5 @@ public class MergeSort {
 			k++;
 		}
 	}
-	
-	
-	void sort(ArrayList<Integer> list, int left, int right) {
-		if (left < right) {
-			int mid = left + (right - left)/2;
-			sort(list, left, mid);
-			sort(list, mid+1, right);
-			merge(list, left, mid, right);
-		}
-	}
-	
-	static void printArray(ArrayList<Integer> array) {
-		int n = array.size();
-		for (int i = 0; i < n; i++) {
-			System.out.print(array.get(i) + " ");
-		}
-		System.out.println();
-	}
-	
-	public static void main(String args[]) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		
-		for (int i = 0; i < 1000; i++) {
-			int element = (int) (1 + Math.random() * 1000);
-			list.add(element);
-		}
-		
-		MergeSort ob  = new MergeSort();
-		ob.sort(list, 0, list.size() - 1);
-		printArray(list);
-	}
 }
-
 
