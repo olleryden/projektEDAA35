@@ -8,7 +8,7 @@ public class BucketSort {
 	// Function to sort arr[] of size n
 	// using bucket sort
 	public static void sort(ArrayList<Integer> arr) {
-		int n = arr.size();
+		int n = arr.size() / 10;
 		if (n <= 0)
 			return;
 
@@ -22,7 +22,7 @@ public class BucketSort {
 
 		// 2) Put array elements in different buckets
 		for (int i = 0; i < n; i++) {
-			Integer idx = arr.get(i);
+			Integer idx = arr.get(i) / 10;
 			buckets[idx].add(arr.get(i));
 		}
 
